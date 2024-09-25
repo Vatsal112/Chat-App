@@ -5,9 +5,10 @@ export const UsernameModal = ({ show }) => {
   const { username, setUName, setIsSettedUsername, socket } = useChat();
 
   const handleJoinRoom = () => {
-    setIsSettedUsername(true);
+
     if (username.trim() !== "") {
       socket.emit("join", username);
+      setIsSettedUsername(true);
     }
   };
 

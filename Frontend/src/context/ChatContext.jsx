@@ -14,9 +14,13 @@ export const ChatContextProvider = ({ children }) => {
   );
   const [username, setUsername] = useState("");
   const [isSettedUsername, setIsSettedUsername] = useState(false);
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const setUName = (name) => {
     setUsername(name);
   };
+  const setContextOnlineUsers = (users)=>{
+    setOnlineUsers(users)
+  }
   return (
     <ChatContext.Provider
       value={{
@@ -25,6 +29,8 @@ export const ChatContextProvider = ({ children }) => {
         isSettedUsername,
         setIsSettedUsername,
         socket,
+        setContextOnlineUsers,
+        onlineUsers
       }}
     >
       {children}
